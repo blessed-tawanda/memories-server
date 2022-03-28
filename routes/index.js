@@ -12,3 +12,4 @@ export const healthCheckHandler = (req, res) => {
   res.status(200).json(response(true, "SERVICE RUNNING."))
 }
 
+export { default as posts } from "./posts.js"

@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import { healthCheckHandler, notFoundHandler } from "./routes/index.js";
+import { healthCheckHandler, notFoundHandler, posts } from "./routes/index.js";
 import figlet from "figlet";
 import { PORT, serviceName } from "./config/index.js";
 import logger from './logger.js';
@@ -19,6 +19,7 @@ app.use(urlencoded({extended: false}));
 
 // // routes
 app.use('/api/v1/health-check', healthCheckHandler);
+app.use('/api/v1/post', posts);
 
 app.use(notFoundHandler);
 
@@ -26,7 +27,7 @@ const banner = figlet.textSync(serviceName, {
   font: 'O8',
   horizontalLayout: 'default',
   verticalLayout: 'default',
-  width: 120,
+  // width: 'full',
   whitespaceBreak: true
 });
 
